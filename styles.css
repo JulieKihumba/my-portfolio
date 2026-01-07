@@ -54,7 +54,7 @@ body {
   border-radius: 10px;
   border: 1px solid var(--black);
 }
-#nav-contact:hover {
+#nav-contact:hover, .btns button:hover {
   transform: translateY(-2px);
 }
 #nav-contact-link:hover {
@@ -198,7 +198,7 @@ body {
   font-family: inherit;
   font-size: 18px;
 }
-.project-details a:hover {
+.project-details a:hover , .btns a:hover{
   background-color: var(--black);
   color: var(--white);
 }
@@ -296,4 +296,5 @@ footer{
   background-color: var(--black);
   padding: 30px;
   color: var(--lighter-gray);
+  border-radius: 8px;
 }
