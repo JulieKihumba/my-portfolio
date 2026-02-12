@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiDownload, FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiDownload, FiGithub, FiLinkedin, FiMenu, FiX } from "react-icons/fi";
+import { AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -22,6 +24,7 @@ const Navbar = () => {
         <Link to="/" className="text-2xl font-serif font-bold text-deepNavy">
           Juliet W. Kihumba
         </Link>
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <div className="flex space-x-6">
@@ -87,7 +90,105 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-deepNavy"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <FiX className="size-7" /> : <FiMenu className="size-7" />}
+        </button>
       </div>
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: -20,
+            }}
+            className="absolute top-full left-0 right-0 bg-warmWhite shadow-lg md:hidden border-t border-coolGray/10"
+          >
+            <div className="flex flex-col p-6 space-y-4">
+              <Link
+                to="/"
+                className="text-deepNavy hover:text-terracotta text-lg font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                to="/about"
+                className="text-deepNavy hover:text-terracotta text-lg font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                to="/skills"
+                className="text-deepNavy hover:text-terracotta text-lg font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Skills
+              </Link>
+              <Link
+                to="/projects"
+                className="text-deepNavy hover:text-terracotta text-lg font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Projects
+              </Link>
+              <Link
+                to="/experience"
+                className="text-deepNavy hover:text-terracotta text-lg font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Experience
+              </Link>
+              <Link
+                to="/contact"
+                className="text-deepNavy hover:text-terracotta text-lg font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact
+              </Link>
+              <div className="h-px w-full bg-coolGray/20 my-4" />
+              <div className="flex items-center space-x-6 pt-2">
+                <a
+                  href="https://github.com/JulieKihumba"
+                  target="_blank"
+                  className="text-deepNavy hover:text-terracotta"
+                >
+                  <FiGithub size={24} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/juliet-w-kihumba/"
+                  target="_blank"
+                  className="text-deepNavy hover:text-terracotta"
+                >
+                  <FiLinkedin size={24} />
+                </a>
+                <Link
+                  to="/"
+                  className="flex items-center space-x-2 text-terracotta font-medium"
+                >
+                  <FiDownload size={20} />
+                  <span>Download CV</span>
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
