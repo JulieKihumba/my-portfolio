@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+  --color-warmWhite: #FAFAF8;
+  --color-deepNavy: #1A1A2E;
+  --color-terracotta: #E07A5F;
+  --color-sage: #81B29A;
+  --color-coolGray: #8D99AE;
+  --font-family-serif: "DM Serif Display", serif;
+  --font-family-sans: "Inter", sans-serif;
+  --background-image-dot-pattern: radial-gradient(#8D99AE 1px, transparent 1px);
+}
