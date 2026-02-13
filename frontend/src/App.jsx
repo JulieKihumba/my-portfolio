@@ -7,9 +7,11 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
+
 const App = () => {
   return (
-    <Router>
+    <Router className="min-h-screen bg-warmWhite text-deepNavy font-sans selection:bg-terracotta selection:text-white">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,6 +22,7 @@ const App = () => {
         <Route path="/experience" element={<Experience />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };
