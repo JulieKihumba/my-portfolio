@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { FiBriefcase, FiCalendar } from "react-icons/fi";
 const experiences = [
   {
@@ -34,30 +33,14 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <div className="py-24 bg-warmWhite relative">
+    <div className="py-24 bg-white relative">
       <div className="max-w-4xl mx-auto px-6">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.6,
-          }}
-          className="mb-16 text-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-deepNavy mb-4">
+        <div className="mb-16 text-center">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-blue mb-4">
             Experience
           </h2>
           <div className="h-1 w-20 bg-terracotta rounded-full mx-auto"></div>
-        </motion.div>
+        </div>
 
         <div className="relative">
           {/* Vertical Line */}
@@ -65,34 +48,18 @@ const Experience = () => {
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.2,
-                }}
+              <div
                 className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 rounded-full bg-terracotta border-4 border-warmWhite transform md:-translate-x-1/2 translate-y-1.5 ml-2 md:ml-0 z-10 shadow-sm"></div>
+                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 rounded-full bg-terracotta border-4 border-white transform md:-translate-x-1/2 translate-y-1.5 ml-2 md:ml-0 z-10 shadow-sm"></div>
 
                 {/* Content */}
                 <div className="ml-12 md:ml-0 md:w-1/2">
                   <div
-                    className={`bg-white p-6 rounded-2xl shadow-sm border border-coolGray/10 hover:shadow-md transition-shadow duration-300 ${index % 2 === 0 ? "md:text-left" : "md:text-right"}`}
+                    className={`bg-white p-6 rounded-2xl shadow-sm border border-gray/10 hover:shadow-md transition-shadow duration-300 ${index % 2 === 0 ? "md:text-left" : "md:text-right"}`}
                   >
-                    <h3 className="text-xl font-bold text-deepNavy mb-1">
+                    <h3 className="text-xl font-bold text-blue mb-1">
                       {exp.role}
                     </h3>
                     <div
@@ -102,12 +69,12 @@ const Experience = () => {
                       <span>{exp.company}</span>
                     </div>
 
-                    <p className="text-deepNavy/70 text-sm leading-relaxed mb-4">
+                    <p className="text-blue/70 text-sm leading-relaxed mb-4">
                       {exp.description}
                     </p>
 
                     <div
-                      className={`flex items-center gap-2 text-coolGray text-xs font-medium uppercase tracking-wider ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}
+                      className={`flex items-center gap-2 text-gray text-xs font-medium uppercase tracking-wider ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}
                     >
                       <FiCalendar size={12} />
                       <span>{exp.period}</span>
@@ -117,7 +84,7 @@ const Experience = () => {
 
                 {/* Empty space for the other side */}
                 <div className="hidden md:block md:w-1/2"></div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

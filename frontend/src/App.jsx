@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <Router className="min-h-screen bg-warmWhite text-deepNavy font-sans selection:bg-terracotta selection:text-white">
+    <Router className="min-h-screen bg-white text-blue font-sans selection:bg-terracotta selection:text-white">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
